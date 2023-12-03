@@ -1,0 +1,146 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-top: 100px;
+    margin: 0;
+}
+
+input, button {
+    font-size: large;
+}
+
+#chatTitleContainer {
+    width: max-content; 
+    margin: auto;
+    position: relative;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+}
+
+#chatWindow {
+    font-family:'Segoe UI', Verdana, sans-serif;
+    background-color: #444; 
+    width: 80%;
+    height: 60vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    padding: 10px;
+    display: inline-block;
+}
+
+#chatWindow::-webkit-scrollbar {
+    display: none;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: none;
+    max-width: 65%;
+    margin-bottom: 0.75rem;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.my-user {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: auto;
+}
+
+.my-user .message-body {
+    min-width: none;
+    max-width: 65%;
+    background-color: greenyellow;
+    color: black;
+    text-align: right;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: medium;
+}
+
+.other-user .message-body {
+    min-width: none;
+    max-width: 65%;
+    background-color: lightgrey;
+    color: black;
+       
+    text-align: left;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: medium;
+}
+
+.message-info {
+    max-width: 65%;
+    text-align: left;
+    color: white;
+    font-size: small;
+    margin-bottom: 2px;
+}
+
+#messageInputContainer {
+    height: 10%;
+    width: 80%;
+    background: #333;
+    padding: 10px;
+    display: inline-block;
+}
+
+#messageInput {
+    width: 70%;
+    max-width: 70%;
+    height: 32px;
+    border-radius: 12px;
+    padding-left: 3%;
+    border: none;
+}
+
+.sendButton {
+    min-width: 10vw;
+    height: 34px;
+    border: none;
+    background-color: darkcyan;
+    color: white;
+    text-align: center;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#chatTitle {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace; /* Monospace font */
+}
+
+
+.inputField, .enterButton {
+    font-size: larger;
+    padding: 10px;
+    margin: 10px 0;
+    width: 200px;
+}
+
+.inputField {
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+.enterButton {
+    background-color: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+}

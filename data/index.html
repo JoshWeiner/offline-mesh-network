@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Hello World</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Josh's Chat App</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
 <body>
-    <h1>Hello World!</h1>
+    <div id="chatTitleContainer">
+        <div id="chatTitle"></div>
+    </div>
+    <input type="text" class="inputField" id="nameField" placeholder="Enter your name">
+    <button id="enterButton" class="enterButton">Enter Chat Room</button>
+    
+    <p id="lastResult" style="color: greenyellow;"></p>
+    <a id="bkpLink" href=""></a>
+    <script src="scripts.js"></script>
 </body>
 </html>
