@@ -36,23 +36,23 @@ void handleRoot(AsyncWebServerRequest *request) {
   }
 }
 
-// Initialize Mesh Network
+// Initialize the Mesh Network
 painlessMesh mesh;
 
 void sendMessage();
 
 void sendMessageClient(String msg) {
-  Serial.printf("startHere: Sending to node %u msg=%s\n", mesh.getNodeId(), msg.c_str());
+  Serial.printf("Sending to node %u msg=%s\n", mesh.getNodeId(), msg.c_str());
   mesh.sendBroadcast(msg);
 }
 
 void receivedCallback( uint32_t from, String &msg ) {
-  Serial.printf("startHere: Received from %u msg=%s\n", from, msg.c_str());
+  Serial.printf("Received from %u msg=%s\n", from, msg.c_str());
   webSocket.broadcastTXT(msg.c_str());
 }
 
 void newConnectionCallback(uint32_t nodeId) {
-  Serial.printf("--> startHere: New Connection, nodeId = %u\n", nodeId);
+  Serial.printf("New Connection, nodeId = %u\n", nodeId);
 }
 
 void changedConnectionCallback() {
@@ -69,7 +69,6 @@ void broadcastTestMessage() {
   mesh.sendBroadcast(msg);
   Serial.println("Test message sent: " + msg);
 }
-
 
 unsigned long previousMillis = 0;
 const long interval = 5000;
