@@ -24,6 +24,7 @@ DNSServer dnsServer;
 AsyncWebServer server(HTTP_PORT);
 WebSocketsServer webSocket = WebSocketsServer(WS_PORT);
 
+// Serve index.html as our captive portal
 void handleRoot(AsyncWebServerRequest *request) {
   File file = LittleFS.open("/index.html", "r");
   if (!file) {
@@ -64,15 +65,18 @@ void nodeTimeAdjustedCallback(int32_t offset) {
   webSocket.loop();
 }
 
+// Test Message for Node Handshake
 void broadcastTestMessage() {
   String msg = "Hello from node " + String(mesh.getNodeId());
   mesh.sendBroadcast(msg);
   Serial.println("Test message sent: " + msg);
 }
 
+// Used Later with listNodes
 unsigned long previousMillis = 0;
 const long interval = 5000;
 
+// List ids of nodes on the mesh network
 void listNodes() {
   auto nodes = mesh.getNodeList();
   Serial.printf("The mesh has %u nodes:\n", nodes.size());
@@ -120,6 +124,7 @@ void onWebSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t leng
   }
 }
 
+// Functions for LittleFS
 void onIndexRequest(AsyncWebServerRequest *request) {
   IPAddress ip = request->client()->remoteIP();
   request->send(LittleFS, "/index.html", "text/html");
@@ -169,6 +174,7 @@ void ConnectToWebSocket() {
   webSocket.onEvent(onWebSocketEvent);
 }
 
+// Functions for MDNS
 void StartMDNS() {
   if (!MDNS.begin("esp8266")) {
     Serial.println("Error setting up MDNS responder!");
@@ -199,6 +205,7 @@ void StartWiFi() {
   digitalWrite(LED_BUILTIN, HIGH);
 }
 
+// On node startup
 void setup() {
   Serial.begin(115200);
   
@@ -239,6 +246,7 @@ void setup() {
   // webServer.begin();
 }
 
+// Recurring function calls
 void loop() {
   mesh.update();
   webSocket.loop();
