@@ -1,15 +1,11 @@
 const title = "Josh's Chat App";
 let displayTitle = new Array(title.length).fill("0");
 let index = 0;
-
 var socket = new WebSocket('ws://192.168.4.1:1337');
 
 socket.onmessage = function(event) {
     console.log('Message from server:', event.data);
 };
-
-
-
 
 function sendMessage() {
     var message = document.getElementById('messageInput').value;
@@ -56,11 +52,9 @@ function enterChatRoom() {
     }
 }
 
-
 enterButton.addEventListener("click", async function (e) {
     e.preventDefault();
     enterChatRoom();    
-    
   });
 
 updateTitle();
